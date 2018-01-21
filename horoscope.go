@@ -72,7 +72,6 @@ func GetHoroscope()  map[string]map[string]Horoscope{
 			log.Println("Can not read body")
 		}
 		content := string(body)
-		//fmt.Println(content)
 		horoscope := Zsigns{}
 
 		err = xml.Unmarshal([]byte(content), &horoscope)
@@ -86,51 +85,51 @@ func GetHoroscope()  map[string]map[string]Horoscope{
 			switch sgn {
 			case "aries":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Aries,
 				}
 			case "taurus":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Taurus,
 				}
 			case "gemini":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Gemini,
 				}
 			case "cancer":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Сancer,
 				}
 			case "leo":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Leo,
 				}
 			case "virgo":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Virgo,
 				}
 			case "libra":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Libra,
 				}
 			case "scorpio":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Scorpio,
 				}
 			case "sagittarius":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Sagittarius,
 				}
 			case "capricorn":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Capricorn,
 				}
 			case "aquarius":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Aquarius,
 				}
 			case "pisces":
 				general[key]=map[string]Horoscope{
-					"aries":horoscope.Aries,
+					sgn:horoscope.Pisces,
 				}
 
 			}
