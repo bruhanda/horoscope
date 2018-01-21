@@ -36,25 +36,32 @@ var Signs = map[string]string{
 	"pisces":      "Рыбы",
 }
 
-type Horoscope struct {
-	Aries       string `xml:"aries>today"`
-	Taurus      string `xml:"taurus>today"`
-	Gemini      string `xml:"gemini>today"`
-	Сancer      string `xml:"cancer>today"`
-	Leo         string `xml:"leo>today"`
-	Virgo       string `xml:"virgo>today"`
-	Libra       string `xml:"libra>today"`
-	Scorpio     string `xml:"scorpio>today"`
-	Sagittarius string `xml:"sagittarius>today"`
-	Capricorn   string `xml:"capricorn>today"`
-	Aquarius    string `xml:"aquarius>today"`
-	Pisces      string `xml:"pisces>today"`
+type Zsigns struct {
+	Aries       Horoscope `xml:"aries"`
+	Taurus      Horoscope `xml:"taurus"`
+	Gemini      Horoscope `xml:"gemini"`
+	Сancer      Horoscope `xml:"cancer"`
+	Leo         Horoscope `xml:"leo"`
+	Virgo       Horoscope `xml:"virgo"`
+	Libra       Horoscope `xml:"libra"`
+	Scorpio     Horoscope `xml:"scorpio"`
+	Sagittarius Horoscope `xml:"sagittarius"`
+	Capricorn   Horoscope `xml:"capricorn"`
+	Aquarius    Horoscope `xml:"aquarius"`
+	Pisces      Horoscope `xml:"pisces"`
 }
 
-func GetHoroscope() (map[string]Horoscope) {
-	general:=make(map[string]Horoscope)
+type Horoscope struct {
+	Yesterday  string `xml:"yesterday"`
+	Today      string `xml:"today"`
+	Tomorrow   string `xml:"tomorrow"`
+	Tomorrow02 string `xml:"tomorrow02"`
+}
+
+func GetHoroscope()  map[string]map[string]Horoscope{
+	general := make(map[string]map[string]Horoscope)
 	for key, _ := range Keys {
-		url:= fmt.Sprintf(urlStr, key)
+		url := fmt.Sprintf(urlStr, key)
 		resp, err := http.Get(url);
 		if err != nil {
 			log.Println("Can not read body")
@@ -66,14 +73,70 @@ func GetHoroscope() (map[string]Horoscope) {
 		}
 		content := string(body)
 		//fmt.Println(content)
-		horoscope := Horoscope{}
+		horoscope := Zsigns{}
 
 		err = xml.Unmarshal([]byte(content), &horoscope)
 		if err != nil {
 			log.Println("error: %v", err)
 		}
-		general[key]=horoscope
+
+
+
+		for sgn, _ := range Signs {
+			switch sgn {
+			case "aries":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "taurus":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "gemini":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "cancer":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "leo":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "virgo":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "libra":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "scorpio":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "sagittarius":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "capricorn":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "aquarius":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+			case "pisces":
+				general[key]=map[string]Horoscope{
+					"aries":horoscope.Aries,
+				}
+
+			}
+		}
+
 	}
-	return general
+    return general
 }
 
