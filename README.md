@@ -1,7 +1,7 @@
 # horoscope
 golang русский гороскоп; Horoscope package
 
-<code>
+```sh
 package main
 
 import (
@@ -23,4 +23,4 @@ func main()  {
 	}
 
 }
-</code>
+```
