@@ -58,8 +58,122 @@ type Horoscope struct {
 	Tomorrow02 string `xml:"tomorrow02"`
 }
 
-func GetHoroscope()  map[string]map[string]Horoscope{
-	general := make(map[string]map[string]Horoscope)
+func GetHoroscope() map[string]map[string]Horoscope {
+	general := map[string]map[string]Horoscope{
+		"com": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"ero": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"anti": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"bus": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"hea": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"cook": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"mob": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+		"lov": map[string]Horoscope{
+			"aries":       Horoscope{},
+			"taurus":      Horoscope{},
+			"gemini":      Horoscope{},
+			"cancer":      Horoscope{},
+			"leo":         Horoscope{},
+			"virgo":       Horoscope{},
+			"libra":       Horoscope{},
+			"scorpio":     Horoscope{},
+			"sagittarius": Horoscope{},
+			"capricorn":   Horoscope{},
+			"aquarius":    Horoscope{},
+			"pisces":      Horoscope{},
+		},
+	}
+
 	for key, _ := range Keys {
 		url := fmt.Sprintf(urlStr, key)
 		resp, err := http.Get(url);
@@ -79,63 +193,21 @@ func GetHoroscope()  map[string]map[string]Horoscope{
 			log.Println("error: %v", err)
 		}
 
-
-
-		for sgn, _ := range Signs {
-			switch sgn {
-			case "aries":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Aries,
-				}
-			case "taurus":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Taurus,
-				}
-			case "gemini":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Gemini,
-				}
-			case "cancer":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Сancer,
-				}
-			case "leo":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Leo,
-				}
-			case "virgo":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Virgo,
-				}
-			case "libra":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Libra,
-				}
-			case "scorpio":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Scorpio,
-				}
-			case "sagittarius":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Sagittarius,
-				}
-			case "capricorn":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Capricorn,
-				}
-			case "aquarius":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Aquarius,
-				}
-			case "pisces":
-				general[key]=map[string]Horoscope{
-					sgn:horoscope.Pisces,
-				}
-
-			}
-		}
+		general[key]["aries"] = horoscope.Aries
+		general[key]["taurus"] =horoscope.Taurus
+		general[key]["gemini"] = horoscope.Gemini
+		general[key]["cancer"] = horoscope.Сancer
+		general[key]["leo"] =horoscope.Leo
+		general[key]["virgo"] = horoscope.Virgo
+		general[key]["libra"] = horoscope.Libra
+		general[key]["scorpio"] = horoscope.Scorpio
+		general[key]["sagittarius"] = horoscope.Sagittarius
+		general[key]["capricorn"] = horoscope.Capricorn
+		general[key]["aquarius"] = horoscope.Aquarius
+		general[key]["pisces"] = horoscope.Pisces
 
 	}
-    return general
+
+	return general
 }
 
