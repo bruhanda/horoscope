@@ -21,6 +21,13 @@ var Keys = map[string]string{
 	"lov":  "Любовный",    //любовный
 }
 
+var Date = map[string]string{
+	"yesterday":"Вчера",
+	"today":"Сегодня",
+	"tomorrow":"Завтра",
+	"tomorrow02":"Послезавтра",
+}
+
 var Signs = map[string]string{
 	"aries":       "Овен",
 	"taurus":      "Телец",
